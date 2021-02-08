@@ -5,7 +5,7 @@ import ToDoCard from "../ToDoCard/ToDoCard";
 import InProgressCard from "../InProgressCard/InProgressCard";
 import DoneCard from "../DoneCard/DoneCard";
 import NewTaskButton from "../NewTaskButton/NewTaskButton";
-import {TasksDataType} from "../../utils/types"
+import { TasksDataType } from "../../utils/types";
 import "./Kanban.scss";
 // Importing the Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -41,7 +41,6 @@ function Kanban() {
     const newTodos = tasks.todos.filter(
       (todo: { id: string }) => todo.id !== id
     );
-    console.log(newTodos);
     await localStorage.setItem("todos", JSON.stringify(newTodos));
 
     setTasks({
