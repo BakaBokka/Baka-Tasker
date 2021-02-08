@@ -1,0 +1,29 @@
+.DoneCard {
+  background-color: #fff;
+  border-radius: 5px;
+  &__content {
+    justify-content: space-between;
+  }
+
+  &__container {
+    flex-direction: column;
+  }
+
+  &__content-image {
+    margin-top: 2px;
+    height: 24px;
+  }
+  &__text {
+    max-width: 100%;
+    width: 100%;
+    text-align: left;
+  }
+
+  &__summ {
+    max-width: fit-content;
+    margin: 0 10px 0 32px;
+    color: #6c757d;
+    font-weight: 500;
+    text-align: left;
+  }
+}

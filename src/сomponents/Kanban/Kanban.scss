@@ -1,0 +1,23 @@
+.Kanban {
+  &__content {
+    height: 100vh;
+  }
+  &__column {
+    height: 100%;
+    padding: 10px 0 30px;
+    overflow-y: scroll;
+  }
+
+  &__counter {
+    border-radius: 100px;
+    background-color: lightgray;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+
+  &__content-title{
+    text-align: "left";
+    font-weight: "500"
+  }
+}

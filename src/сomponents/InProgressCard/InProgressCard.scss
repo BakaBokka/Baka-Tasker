@@ -1,0 +1,27 @@
+.InProgressCard {
+  background-color: #fff;
+  border-radius: 5px;
+  &__content {
+    justify-content: space-between;
+  }
+
+  &__text {
+    max-width: 200px;
+    width:  100%;
+    text-align: left;
+  }
+
+  &__container {
+  flex-direction: column;
+
+  }
+
+  &__content-image {
+    margin-top: 2px;
+    height: 24px;
+  }
+
+  &__button {
+    height: 50px;
+  }
+}
