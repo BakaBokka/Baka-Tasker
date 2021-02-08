@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Baka-Tasker/static/css/main.d01e2e41.chunk.css",
+    "main.js": "/Baka-Tasker/static/js/main.2dc253e9.chunk.js",
+    "main.js.map": "/Baka-Tasker/static/js/main.2dc253e9.chunk.js.map",
+    "runtime-main.js": "/Baka-Tasker/static/js/runtime-main.3e241df8.js",
+    "runtime-main.js.map": "/Baka-Tasker/static/js/runtime-main.3e241df8.js.map",
+    "static/css/2.150d169a.chunk.css": "/Baka-Tasker/static/css/2.150d169a.chunk.css",
+    "static/js/2.59a1e5cd.chunk.js": "/Baka-Tasker/static/js/2.59a1e5cd.chunk.js",
+    "static/js/2.59a1e5cd.chunk.js.map": "/Baka-Tasker/static/js/2.59a1e5cd.chunk.js.map",
+    "static/js/3.9aaf51e4.chunk.js": "/Baka-Tasker/static/js/3.9aaf51e4.chunk.js",
+    "static/js/3.9aaf51e4.chunk.js.map": "/Baka-Tasker/static/js/3.9aaf51e4.chunk.js.map",
+    "index.html": "/Baka-Tasker/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/Baka-Tasker/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.d01e2e41.chunk.css.map": "/Baka-Tasker/static/css/main.d01e2e41.chunk.css.map",
+    "static/js/2.59a1e5cd.chunk.js.LICENSE.txt": "/Baka-Tasker/static/js/2.59a1e5cd.chunk.js.LICENSE.txt",
+    "static/media/card-text.21416c42.svg": "/Baka-Tasker/static/media/card-text.21416c42.svg",
+    "static/media/pause-fill.bba9440f.svg": "/Baka-Tasker/static/media/pause-fill.bba9440f.svg",
+    "static/media/play-fill.446d2092.svg": "/Baka-Tasker/static/media/play-fill.446d2092.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3e241df8.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.59a1e5cd.chunk.js",
+    "static/css/main.d01e2e41.chunk.css",
+    "static/js/main.2dc253e9.chunk.js"
+  ]
+}
