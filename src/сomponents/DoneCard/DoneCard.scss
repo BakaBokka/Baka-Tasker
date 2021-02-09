@@ -19,6 +19,14 @@
     text-align: left;
   }
 
+  &__time {
+    min-width: 80px;
+    margin: 0 10px 5px 32px;
+    color: #bdc3c8;
+    font-weight: 500;
+    text-align: left
+  }
+
   &__summ {
     max-width: fit-content;
     margin: 0 10px 0 32px;

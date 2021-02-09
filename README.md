@@ -4,7 +4,7 @@
 
 ****
 
-### Just my simple Tasker-app. Made with React.js
+### Just my simple Tasker-app. Made with React, TypeScript and Bootstrap
 
 * Press 'New task' to add the task
 * Click 'Start' to start the task

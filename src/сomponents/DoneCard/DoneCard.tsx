@@ -1,13 +1,30 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import cardIco from "../../img/card-text.svg";
+import { RATE } from "../../constants/constants";
 import "./DoneCard.scss";
 
 function DoneCard(props: { task: string; id: string }) {
   const timerData: string = localStorage.getItem(`timer${props.id}`)
     ? localStorage.getItem(`timer${props.id}`) || ""
     : "";
-  const summ = `${Math.ceil(+timerData * 0.2777777777777778)} ₽`;
+
+  //Форматер суммы
+  const summ = +timerData * (RATE / 3600);
+  const formatSumm = () => {
+    const reg = ` рублей `;
+    return summ.toFixed(2).toString().replace(/[,.]/g, reg);
+  };
+
+  //Форматер таймера
+  const formatTime = () => {
+    const getSeconds = `0${+timerData % 60}`.slice(-2);
+    const minutes = `${Math.floor(+timerData / 60)}`;
+    const getMinutes = `0${+minutes % 60}`.slice(-2);
+    const getHours = `0${Math.floor(+timerData / 3600)}`.slice(-2);
+
+    return `${getHours} : ${getMinutes} : ${getSeconds}`;
+  };
 
   return (
     <Card className="DoneCard">
@@ -20,12 +37,13 @@ function DoneCard(props: { task: string; id: string }) {
               alt="card icon"
             />
 
-            <Card.Title className="DoneCard__text text-secondary">{props.task}</Card.Title>
+            <Card.Title className="DoneCard__text text-secondary">
+              {props.task}
+            </Card.Title>
           </div>
-          <span className="DoneCard__summ"> {summ} </span>
-
+          <p className="DoneCard__time">{formatTime()}</p>
+          <span className="DoneCard__summ"> {`${formatSumm()} копеек`} </span>
         </div>
-
       </Card.Body>
     </Card>
   );
