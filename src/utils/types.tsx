@@ -2,7 +2,7 @@ export type Task = {
   text: string;
   id: string;
   date: string;
-  timer?: number;
+  timer?: string;
   summ?: string;
 };
 

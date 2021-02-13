@@ -15,6 +15,12 @@ export const formatSumm = (timer) => {
   return summ.toFixed(2).toString().replace(/[,.]/g, reg);
 };
 
+export const reformatSumm = (rub) => {
+  const timer = rub.slice(0, -7).replace(/( рублей )/g, ".");
+  const total =  +timer / (RATE / 3600);
+  return total;
+};
+
 //Форматер таймера
 export const formatTime = (timer) => {
   const getSeconds = `0${timer % 60}`.slice(-2);

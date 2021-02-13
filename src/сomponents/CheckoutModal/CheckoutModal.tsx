@@ -1,6 +1,7 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { ModalType, Task } from "../../utils/types";
+import { formatSumm, reformatSumm } from "../../utils/helpers";
 import CheckoutTable from "../CheckoutTable/CheckoutTable";
 import "./CheckoutModal.scss";
 
@@ -14,36 +15,48 @@ function CheckoutModal(props: {
   //Оброботка сабмита
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-
     props.onHide();
   };
 
-  const data = useMemo(
-    () => props.closedTasks,
-    [props.closedTasks]
-  )
+  //Подготовка данных для таблицы
+  const data = useMemo(() => props.closedTasks, [props.closedTasks]);
 
   const columns = useMemo(
     () => [
       {
-        Header: 'Task',
-        accessor:"text" // accessor is the "key" in the data
+        Header: "Task",
+        accessor: "text", // accessor is the "key" in the data
       },
       {
-        Header: 'Timer',
-        accessor: 'timer',
+        Header: "Timer",
+        accessor: "timer",
       },
       {
-        Header: 'Summ',
-        accessor: 'summ',
+        Header: "Summ",
+        accessor: "summ",
+        Footer: (info: any) => {
+          // Only calculate total visits if rows change
+          const total = React.useMemo(
+            () =>
+              info.rows.reduce(
+                (sum: number, row: any) => {
+                  console.log(reformatSumm(row.values.summ));
+                 return reformatSumm(row.values.summ) + sum},
+                0
+              ),
+            [info.rows]
+          );
+
+          return <> <span style={{ fontWeight: "bolder"}}>Total:</span>  {`${formatSumm(total)} копеек`}</>;
+        },
       },
       {
-        Header: 'Time',
-        accessor: 'date',
+        Header: "Date",
+        accessor: "date",
       },
     ],
     []
-  )
+  );
 
   return (
     <Modal
@@ -58,7 +71,7 @@ function CheckoutModal(props: {
         <Modal.Title>Give me more...</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
+      <Modal.Body  className="CheckoutModal__content">
         <CheckoutTable data={data} columns={columns} />
         <Button
           className="CheckoutModal__button"
@@ -66,7 +79,7 @@ function CheckoutModal(props: {
           type="submit"
           onClick={(e: React.MouseEvent) => handleClick(e)}
         >
-          Add
+          Do something button
         </Button>
       </Modal.Body>
     </Modal>

@@ -1,10 +1,9 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import cardIco from "../../img/card-text.svg";
-import { formatTime } from "../../utils/helpers";
 import "./DoneCard.scss";
 
-function DoneCard(props: { task: string; id: string; timer?: number; summ?: string }) {
+function DoneCard(props: { task: string; id: string; timer?: string; summ?: string }) {
   return (
     <Card className="DoneCard">
       <Card.Body className="DoneCard__content d-flex p-2">
@@ -21,9 +20,9 @@ function DoneCard(props: { task: string; id: string; timer?: number; summ?: stri
         </div>
         <div className="DoneCard__container d-flex">
           <div>
-            <p className="DoneCard__time">{formatTime(props.timer)}</p>
+            <p className="DoneCard__time">{props.timer}</p>
             <span className="DoneCard__summ">
-              {`${props.summ} копеек`}
+              {`${props.summ}`}
             </span>
           </div>
         </div>

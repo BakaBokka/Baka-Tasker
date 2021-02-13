@@ -7,7 +7,7 @@ import "./CheckoutTable.scss";
 function CheckoutTable(props: { data: Task[]; columns: any }) {
   const columns = props.columns;
   const data = props.data;
-  const { getTableProps, headerGroups, rows, prepareRow } = useTable({
+  const { getTableProps, headerGroups, rows, prepareRow, footerGroups, } = useTable({
     columns,
     data,
   })
@@ -40,6 +40,15 @@ function CheckoutTable(props: { data: Task[]; columns: any }) {
           )
         })}
       </tbody>
+      <tfoot>
+        {footerGroups.map(group => (
+          <tr {...group.getFooterGroupProps()}>
+            {group.headers.map(column => (
+              <td {...column.getFooterProps()}>{column.render('Footer')}</td>
+            ))}
+          </tr>
+        ))}
+      </tfoot>
     </BTable>
   );
 }
