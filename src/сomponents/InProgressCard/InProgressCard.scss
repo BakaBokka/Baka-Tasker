@@ -3,17 +3,22 @@
   border-radius: 5px;
   &__content {
     justify-content: space-between;
+    flex-direction: column;
+
   }
 
   &__text {
-    max-width: 200px;
-    width:  100%;
+    max-width: 100%;
+    width: 100%;
+    margin-right: 32px;
     text-align: left;
   }
 
-  &__container {
-  flex-direction: column;
-
+  &__controls {
+    justify-content: space-between;
+    align-items: center;
+    padding:0 32px 10px;
+    box-sizing: border-box;
   }
 
   &__content-image {
