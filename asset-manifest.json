@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Baka-Tasker/static/css/main.d98cf19f.chunk.css",
-    "main.js": "/Baka-Tasker/static/js/main.4c603495.chunk.js",
-    "main.js.map": "/Baka-Tasker/static/js/main.4c603495.chunk.js.map",
+    "main.css": "/Baka-Tasker/static/css/main.779351cd.chunk.css",
+    "main.js": "/Baka-Tasker/static/js/main.e3df05c2.chunk.js",
+    "main.js.map": "/Baka-Tasker/static/js/main.e3df05c2.chunk.js.map",
     "runtime-main.js": "/Baka-Tasker/static/js/runtime-main.0438c7cf.js",
     "runtime-main.js.map": "/Baka-Tasker/static/js/runtime-main.0438c7cf.js.map",
     "static/css/2.150d169a.chunk.css": "/Baka-Tasker/static/css/2.150d169a.chunk.css",
-    "static/js/2.d83f758c.chunk.js": "/Baka-Tasker/static/js/2.d83f758c.chunk.js",
-    "static/js/2.d83f758c.chunk.js.map": "/Baka-Tasker/static/js/2.d83f758c.chunk.js.map",
+    "static/js/2.a141d909.chunk.js": "/Baka-Tasker/static/js/2.a141d909.chunk.js",
+    "static/js/2.a141d909.chunk.js.map": "/Baka-Tasker/static/js/2.a141d909.chunk.js.map",
     "static/js/3.b7f1acda.chunk.js": "/Baka-Tasker/static/js/3.b7f1acda.chunk.js",
     "static/js/3.b7f1acda.chunk.js.map": "/Baka-Tasker/static/js/3.b7f1acda.chunk.js.map",
     "index.html": "/Baka-Tasker/index.html",
     "static/css/2.150d169a.chunk.css.map": "/Baka-Tasker/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.d98cf19f.chunk.css.map": "/Baka-Tasker/static/css/main.d98cf19f.chunk.css.map",
-    "static/js/2.d83f758c.chunk.js.LICENSE.txt": "/Baka-Tasker/static/js/2.d83f758c.chunk.js.LICENSE.txt",
+    "static/css/main.779351cd.chunk.css.map": "/Baka-Tasker/static/css/main.779351cd.chunk.css.map",
+    "static/js/2.a141d909.chunk.js.LICENSE.txt": "/Baka-Tasker/static/js/2.a141d909.chunk.js.LICENSE.txt",
     "static/media/card-text.21416c42.svg": "/Baka-Tasker/static/media/card-text.21416c42.svg",
     "static/media/pause-fill.bba9440f.svg": "/Baka-Tasker/static/media/pause-fill.bba9440f.svg",
     "static/media/play-fill.446d2092.svg": "/Baka-Tasker/static/media/play-fill.446d2092.svg"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.0438c7cf.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.d83f758c.chunk.js",
-    "static/css/main.d98cf19f.chunk.css",
-    "static/js/main.4c603495.chunk.js"
+    "static/js/2.a141d909.chunk.js",
+    "static/css/main.779351cd.chunk.css",
+    "static/js/main.e3df05c2.chunk.js"
   ]
 }
