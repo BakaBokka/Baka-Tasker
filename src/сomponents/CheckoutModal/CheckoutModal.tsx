@@ -68,7 +68,7 @@ function CheckoutModal(props: {
       size="xl"
     >
       <Modal.Header closeButton>
-        <Modal.Title>Give me more...</Modal.Title>
+        <Modal.Title>Sic transit gloria mundi.</Modal.Title>
       </Modal.Header>
 
       <Modal.Body  className="CheckoutModal__content">
@@ -79,7 +79,7 @@ function CheckoutModal(props: {
           type="submit"
           onClick={(e: React.MouseEvent) => handleClick(e)}
         >
-          Do something button
+          There will be save button
         </Button>
       </Modal.Body>
     </Modal>
