@@ -14,11 +14,46 @@ import html2canvas from "html2canvas";
 
 import "./CheckoutTable.scss";
 
+  //Фильтрация данных в таблице
+  function GlobalFilter({
+    preGlobalFilteredRows,
+    globalFilter,
+    setGlobalFilter,
+  }: {
+    preGlobalFilteredRows: any;
+    globalFilter: any;
+    setGlobalFilter: any;
+  }) {
+    const [value, setValue] = useState(globalFilter);
+    const onChange = useAsyncDebounce((value) => {
+      setGlobalFilter(value || undefined);
+    }, 500);
+
+    return (
+      <span>
+        Filter:{" "}
+        <input
+          value={value || ""}
+          onChange={(e) => {
+            setValue(e.target.value);
+            onChange(e.target.value);
+          }}
+          placeholder={"Input something here..."}
+          style={{
+            fontSize: "1 rem",
+            border: "0",
+          }}
+        />
+      </span>
+    );
+  }
+
 function CheckoutTable(props: {
   data: Task[];
   columns: any;
   onHide: () => void;
 }) {
+  const [loading, setLoading] = useState<boolean>(false);
   const columns = props.columns;
   const data = props.data;
   const {
@@ -40,61 +75,30 @@ function CheckoutTable(props: {
     useGlobalFilter // useGlobalFilter!
   );
 
-  //Фильтрация данных в таблице
-  function GlobalFilter({
-    preGlobalFilteredRows,
-    globalFilter,
-    setGlobalFilter,
-  }: {
-    preGlobalFilteredRows: any;
-    globalFilter: any;
-    setGlobalFilter: any;
-  }) {
-    const [value, setValue] = useState(globalFilter);
-    const onChange = useAsyncDebounce((value) => {
-      setGlobalFilter(value || undefined);
-    }, 200);
-
-    return (
-      <span>
-        Filter:{" "}
-        <input
-          value={value || ""}
-          onChange={(e) => {
-            setValue(e.target.value);
-            onChange(e.target.value);
-          }}
-          placeholder={"Input something here..."}
-          style={{
-            fontSize: "1 rem",
-            border: "0",
-          }}
-        />
-      </span>
-    );
-  }
   //Оброботка сабмита
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = async (e: React.MouseEvent) => {
     e.preventDefault();
-    getPdf();
-    props.onHide();
+    await getPdf();
   };
 
   //Сохранение таблицы в pdf
   const getPdf = () => {
+    setLoading(true);
     const input = document.getElementById("table") as HTMLCanvasElement;
-    console.log(input);
-
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "px", "a4");
-      const imgProps = pdf.getImageProperties(imgData);
-      let width = pdf.internal.pageSize.getWidth() - 40;
-      let height = (imgProps.height * width) / imgProps.width;
-
-      pdf.addImage(imgData, "JPEG", 20, 20, width, height);
-      pdf.save("total.pdf");
-    });
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "px", "a4");
+        const imgProps = pdf.getImageProperties(imgData);
+        let width = pdf.internal.pageSize.getWidth() - 40;
+        let height = (imgProps.height * width) / imgProps.width;
+        pdf.addImage(imgData, "JPEG", 20, 20, width, height);
+        pdf.save("total.pdf");
+      })
+      .finally(() => {
+        setLoading(false);
+        props.onHide();
+      });
   };
 
   return (
@@ -167,7 +171,7 @@ function CheckoutTable(props: {
         type="submit"
         onClick={(e: React.MouseEvent) => handleClick(e)}
       >
-        Save to PDF
+        {loading === true ? "Loading..." : "Save to PDF"}
       </Button>
     </>
   );
