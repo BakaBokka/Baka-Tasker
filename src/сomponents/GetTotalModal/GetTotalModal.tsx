@@ -1,22 +1,16 @@
 import React, { useMemo } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { ModalType, Task } from "../../utils/types";
 import { formatSumm, reformatSumm } from "../../utils/helpers";
 import CheckoutTable from "../CheckoutTable/CheckoutTable";
-import "./CheckoutModal.scss";
+import "./GetTotalModal.scss";
 
-function CheckoutModal(props: {
+function GetTotalModal(props: {
   onHide: () => void;
   modalType: ModalType;
   closedTasks: Task[];
 }) {
-  const show = props.modalType === "checkout" ? true : false;
-
-  //Оброботка сабмита
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    props.onHide();
-  };
+  const show = props.modalType === "total" ? true : false;
 
   //Подготовка данных для таблицы
   const data = useMemo(() => props.closedTasks, [props.closedTasks]);
@@ -38,16 +32,19 @@ function CheckoutModal(props: {
           // Only calculate total visits if rows change
           const total = React.useMemo(
             () =>
-              info.rows.reduce(
-                (sum: number, row: any) => {
-                  console.log(reformatSumm(row.values.summ));
-                 return reformatSumm(row.values.summ) + sum},
-                0
-              ),
+              info.rows.reduce((sum: number, row: any) => {
+                return reformatSumm(row.values.summ) + sum;
+              }, 0),
             [info.rows]
           );
 
-          return <> <span style={{ fontWeight: "bolder"}}>Total:</span>  {`${formatSumm(total)} копеек`}</>;
+          return (
+            <>
+              {" "}
+              <span style={{ fontWeight: "bolder" }}>Total:</span>{" "}
+              {`${formatSumm(total)} копеек`}
+            </>
+          );
         },
       },
       {
@@ -60,7 +57,7 @@ function CheckoutModal(props: {
 
   return (
     <Modal
-      className="CheckoutModal"
+      className="GetTotalModal"
       show={show}
       onHide={props.onHide}
       centered={true}
@@ -68,22 +65,14 @@ function CheckoutModal(props: {
       size="xl"
     >
       <Modal.Header closeButton>
-        <Modal.Title>Sic transit gloria mundi.</Modal.Title>
+        <Modal.Title>Sic transit gloria mundi</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body  className="CheckoutModal__content">
-        <CheckoutTable data={data} columns={columns} />
-        <Button
-          className="CheckoutModal__button"
-          variant="primary"
-          type="submit"
-          onClick={(e: React.MouseEvent) => handleClick(e)}
-        >
-          There will be save button
-        </Button>
+      <Modal.Body className="GetTotalModal__content">
+        <CheckoutTable data={data} columns={columns} onHide={props.onHide} />
       </Modal.Body>
     </Modal>
   );
 }
 
-export default CheckoutModal;
+export default GetTotalModal;

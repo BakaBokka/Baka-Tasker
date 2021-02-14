@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CardColumns, Card } from "react-bootstrap";
 import AddTaskModal from "../AddTaskModal/AddTaskModal";
-import CheckoutModal from "../CheckoutModal/CheckoutModal";
+import GetTotalModal from "../GetTotalModal/GetTotalModal";
 import ToDoCard from "../ToDoCard/ToDoCard";
 import InProgressCard from "../InProgressCard/InProgressCard";
 import DoneCard from "../DoneCard/DoneCard";
@@ -94,7 +94,7 @@ function Kanban() {
     localStorage.removeItem(`timer${data.id}`);
   };
 
-  const checkout = async () => {
+  const getTotal = async () => {
     await localStorage.setItem(
       "closed",
       JSON.stringify([...tasks.closed, ...tasks.done])
@@ -150,8 +150,8 @@ function Kanban() {
 
   //Обработчики
   const handleOpenModal = () => {
-    setModalType("checkout");
-    checkout();
+    setModalType("total");
+    getTotal();
   };
   const handleCloseModal = () => {
     setModalType(undefined);
@@ -166,7 +166,7 @@ function Kanban() {
         modalType={modalType}
       />
 
-      <CheckoutModal
+      <GetTotalModal
         onHide={handleCloseModal}
         modalType={modalType}
         closedTasks={tasks.closed}
@@ -217,7 +217,7 @@ function Kanban() {
             {doneCards}
           </Card.Body>
           <footer className="Kanban__column-footer">
-            <CommonButton onClick={handleOpenModal} text="Checkout" />
+            <CommonButton onClick={handleOpenModal} text="Get total" />
           </footer>
         </Card>
       </CardColumns>

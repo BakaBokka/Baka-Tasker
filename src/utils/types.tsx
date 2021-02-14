@@ -6,15 +6,6 @@ export type Task = {
   summ?: string;
 };
 
-export type ClosedTasksType = {
-  [id: string]: {
-    text: string;
-    id: string;
-    date: string;
-    timer?: number;
-    summ?: string;
-  };
-};
 
 export type TasksDataType = {
   tasks: Task[];
@@ -23,4 +14,4 @@ export type TasksDataType = {
   closed: Task[];
 };
 
-export type ModalType = "add" | "checkout" | undefined;
+export type ModalType = "add" | "total" | undefined;
