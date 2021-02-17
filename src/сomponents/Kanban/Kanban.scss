@@ -32,3 +32,13 @@
     background-color: #f8f9fa;
   }
 }
+
+@media (max-width: 550px) {
+  .Kanban {
+    &__content {
+      flex-direction: column;
+    }
+
+
+  }
+}

@@ -11,6 +11,9 @@
 * Use 'Play/Pause" to start or pause the timer
 * Click 'Resolve' to end the task
 * Your fee will be summed automatically
+* Click 'Get total' to look at results table
+* The table may be filtered by date, name, or by any symbol
+* Click 'Save to PDF' to download your results
 
 ****
 
